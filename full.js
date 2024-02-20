@@ -109,7 +109,7 @@ window.onload = function() {
         // set apstag bids, then trigger the first request to GAM
         googletag.cmd.push(function () {
             apstag.setDisplayBids();
-            googletag.display('div-gpt-ad-4168372-1');
+            googletag.pubads().refresh();
         });
     });
 };
