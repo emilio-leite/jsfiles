@@ -20,19 +20,9 @@ var googletag;
         .addSize([990, 400], [[970, 250]])
         .addSize([0, 0], [[300, 250]])
         .build();
-
-    googletag.defineSlot('/57671086/cyclenews_first', [[300, 250], [970, 250]], 'div-gpt-ad-4168372-1')
-        .defineSizeMapping(mapping1)
-        .addService(googletag.pubads());
-
-    googletag.pubads().setTargeting("url", window.location.hostname);
-    var pathParts = window.location.pathname.substr(0).split("/");
-    googletag.pubads().setTargeting("lp", pathParts[1] ? pathParts[1] : "home");
-    googletag.pubads().setTargeting("category", pathParts[2] ? pathParts[2] : "none");
-    googletag.pubads().enableLazyLoad({fetchMarginPercent: 0, renderMarginPercent: 0});
-    googletag.pubads().enableSingleRequest();
-    googletag.pubads().collapseEmptyDivs(true);
-    googletag.enableServices();
+    googletag.defineSlot("/57671086/cyclenews_first", [[300, 250], [970, 250]], "div-gpt-ad-4168372-1").defineSizeMapping(mapping1).addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices(), document.getElementById("div-gpt-ad-4168372-1-wrap").innerHTML = "<div id='div-gpt-ad-4168372-1'></div>";
+    var e = document.createElement("script"), t = document.getElementById("div-gpt-ad-4168372-1");
+    e.text = "googletag.cmd.push(function() {  googletag.display('div-gpt-ad-4168372-1');})", t.parentNode.insertBefore(e, t)
 });
 var imported = document.createElement("script");
 imported.src = "//cdn.digitalthrottle.com/pub/dtpbid.js", document.head.appendChild(imported), function (e, t, s, a, n, i, o) {
