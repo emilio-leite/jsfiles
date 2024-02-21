@@ -20,7 +20,7 @@ var googletag;
         .addSize([990, 400], [[970, 250]])
         .addSize([0, 0], [[300, 250]])
         .build();
-    googletag.defineSlot("/57671086/cyclenews_first", [[300, 250], [970, 250]], "div-gpt-ad-4168372-1").defineSizeMapping(mapping1).addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices(), document.getElementById("div-gpt-ad-4168372-1-wrap").innerHTML = "<div id='div-gpt-ad-4168372-1'></div>";
+    googletag.defineSlot("/57671086/cyclenews_first", [[300, 250], [970, 250]], "div-gpt-ad-4168372-1").addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices(), document.getElementById("div-gpt-ad-4168372-1-wrap").innerHTML = "<div id='div-gpt-ad-4168372-1'></div>";
     var e = document.createElement("script"), t = document.getElementById("div-gpt-ad-4168372-1");
     e.text = "googletag.cmd.push(function() {  googletag.display('div-gpt-ad-4168372-1');})", t.parentNode.insertBefore(e, t)
 });
