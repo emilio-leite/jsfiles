@@ -16,9 +16,23 @@ var googletag;
     s.parentNode.insertBefore(e, s)
 }
 (), (googletag = googletag || {}).cmd = googletag.cmd || [], googletag.cmd.push(function () {
-    googletag.defineSlot("/57671086/PU176365_ST322712_PL12431898_SZ728x90_APN", [970, 90], "PU176365_ST322712_PL12431898_SZ728x90_APN").addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices(), document.getElementById("dt_12431898").innerHTML = "<div id='PU176365_ST322712_PL12431898_SZ728x90_APN'></div>";
-    var e = document.createElement("script"), t = document.getElementById("dt_12431898");
-    e.text = "googletag.cmd.push(function() {  googletag.display('PU176365_ST322712_PL12431898_SZ728x90_APN');})", t.parentNode.insertBefore(e, t)
+    var mapping1 = googletag.sizeMapping()
+        .addSize([990, 400], [[970, 250]])
+        .addSize([0, 0], [[300, 250]])
+        .build();
+
+    googletag.defineSlot('/57671086/cyclenews_first', [[300, 250], [970, 250]], 'div-gpt-ad-4168372-1')
+        .defineSizeMapping(mapping1)
+        .addService(googletag.pubads());
+
+    googletag.pubads().setTargeting("url", window.location.hostname);
+    var pathParts = window.location.pathname.substr(0).split("/");
+    googletag.pubads().setTargeting("lp", pathParts[1] ? pathParts[1] : "home");
+    googletag.pubads().setTargeting("category", pathParts[2] ? pathParts[2] : "none");
+    googletag.pubads().enableLazyLoad({fetchMarginPercent: 0, renderMarginPercent: 0});
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs(true);
+    googletag.enableServices();
 });
 var imported = document.createElement("script");
 imported.src = "//cdn.digitalthrottle.com/pub/dtpbid.js", document.head.appendChild(imported), function (e, t, s, a, n, i, o) {
@@ -40,17 +54,20 @@ imported.src = "//cdn.digitalthrottle.com/pub/dtpbid.js", document.head.appendCh
 ("apstag", window, document, "script");
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
-var sizesDesktop = [[970, 90], [970, 66], [728, 90], [300, 600], [300, 250], [970, 250]], sizesTablet = [[970, 90], [300, 600], [300, 250]], sizesPhone = [[300, 250], [320, 50]], adUnits = [{
-    code: "PU176365_ST322712_PL12431898_SZ728x90_APN",
-    mediaTypes: {banner: {sizes: [[970, 90]]}},
-    labelAny: ["desktop", "tablet", "phone"],
-    bids: [{bidder: "appnexus", params: {placementId: "12431898"}}, {bidder: "sovrn", params: {tagid: "533565", sizes: [970, 90]}}, {
-        bidder: "rubicon",
-        params: {accountId: "10912", siteId: "25904", zoneId: "141366", sizes: [43], keywords: ["98"]}
-    }]
+var adUnits = [{
+    code: '/57671086/cyclenews_first',
+    mediaTypes: {banner: {sizes: [[300, 250], [970, 250]]}},
+    bids: [
+        {bidder: 'rubicon', params: {accountId: '10912', siteId: '25904', zoneId: '141306'}},
+        {bidder: 'appnexus', params: {placementId: '15792792'}},
+    ]
 }];
-apstag.init({pubID: "605afddd-eb51-4e15-8fb5-80cab8388a37", adServer: "googletag"});
-var apstagSlots = [{slotID: "", slotName: "/57671086/PU176365_ST322712_PL12431898_SZ728x90_APN", sizes: [[970, 90]]}];
+apstag.init({
+    pubID: '605afddd-eb51-4e15-8fb5-80cab8388a37',
+    adServer: 'googletag',
+    bidTimeout: 2e3
+});
+var apstagSlots = [{slotID: "div-gpt-ad-4168372-1", slotName: "/57671086/cyclenews_first", sizes: [[300, 250], [970, 250]]}];
 
 function fetchHeaderBids(e, t) {
     var s = ["a9", "prebid"], a = {adserverRequestSent: !1, apstagSlots: e, adUnits: t};
@@ -71,24 +88,11 @@ function fetchHeaderBids(e, t) {
         a[e] = !1
     }), pbjs.que.push(function () {
         pbjs.addAdUnits(a.adUnits), pbjs.setConfig({
-            priceGranularity: "high",
-            sizeConfig: [{mediaQuery: "(min-width: 1px)", sizesSupported: sizesDesktop, labels: ["desktop"]}, {
-                mediaQuery: "(min-width: 768px) and (max-width: 1024px)",
-                sizesSupported: sizesTablet,
-                labels: ["tablet"]
-            }, {mediaQuery: "(min-width: 20px) and (max-width: 768px)", sizesSupported: sizesPhone, labels: ["phone"]}],
-            userSync: {iframeEnabled: !0, filterSettings: {iframe: {bidders: "*", filter: "include"}}}
+            useBidCache: true,
         }), pbjs.requestBids({
-            bidsBackHandler: function (e) {
-                n("prebid")
-            }
-        }), pbjs.bidderSettings = {
-            rubicon: {
-                bidCpmAdjustment: function (e) {
-                    return console.log("Rubicon bid adjust: " + .85 * e), .85 * e
-                }
-            }
-        }
+            timeout: 1500,
+        bidsBackHandler: initAdserver
+        })
     }), apstag.fetchBids({slots: a.apstagSlots}, function (e) {
         n("a9")
     }), window.setTimeout(function () {
