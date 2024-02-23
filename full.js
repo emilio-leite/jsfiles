@@ -57,7 +57,7 @@ apstag.init({
     adServer: 'googletag',
     bidTimeout: 2e3
 });
-var apstagSlots = [{slotID: "div-gpt-ad-4168372-1", slotName: "/57671086/cyclenews_first", sizes: [[300, 250], [970, 250]]}];
+var apstagSlots = [{slotID: "", slotName: "/57671086/cyclenews_first", sizes: [[300, 250], [970, 250]]}];
 
 function fetchHeaderBids(e, t) {
     var s = ["a9", "prebid"], a = {adserverRequestSent: !1, apstagSlots: e, adUnits: t};
