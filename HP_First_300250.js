@@ -16,7 +16,7 @@ var googletag;
     s.parentNode.insertBefore(e, s)
 }
 (), (googletag = googletag || {}).cmd = googletag.cmd || [], googletag.cmd.push(function () {
-    googletag.defineSlot("/2927662/HP_First", [[300, 250]], "div-gpt-ad-5048753-1").addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices(), document.getElementById("div-gpt-ad-5048753-1-300250-wrap").innerHTML = "<div id='div-gpt-ad-5048753-1'></div>";
+    googletag.defineSlot("/2927662/HP_First", [[300, 250]], "div-gpt-ad-5048753-1").addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.pubads().disableInitialLoad(), googletag.enableServices();
     var e = document.createElement("script"), t = document.getElementById("div-gpt-ad-5048753-1");
     e.text = "googletag.cmd.push(function() {  googletag.display('div-gpt-ad-5048753-1');})", t.parentNode.insertBefore(e, t)
 });
